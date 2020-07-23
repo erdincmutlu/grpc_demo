@@ -3,7 +3,17 @@ syntax = "proto3";
 package grpcdemopb;
 
 service GrpcDemo {
-    rpc TestFeature(Empty) returns (Empty) {} 
+    rpc NoParamFunc(Empty) returns (Empty) {} 
+    rpc UnaryFunc(UnaryFuncRequest) returns (UnaryFuncResponse) {} 
 }
 
 message Empty {}
+
+message UnaryFuncRequest {
+    string name = 1;
+    int64 height = 2;
+}
+
+message UnaryFuncResponse {
+    string msg = 1;
+}
